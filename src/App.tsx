@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, ChangeEvent } from 'react'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 
@@ -7,10 +7,16 @@ import Menu from './components/Menu/menu'
 import MenuItem from './components/Menu/menuItem'
 import SubMenu from './components/Menu/subMenu'
 import Icon from './components/Icon/icon'
+import Input from './components/Input'
 
 library.add(fas)
 
 function App() {
+  const [val, setVal] = useState('')
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value)
+    setVal(e.target.value)
+  }
   return (
     <div className='App'>
       <div style={{ marginBottom: '20px' }}>
@@ -62,6 +68,14 @@ function App() {
 
       <div style={{ marginBottom: '20px' }}>
         <Icon icon='arrow-down' size='3x' theme='primary' />
+      </div>
+      <div style={{ marginBottom: '20px', width: '200px' }}>
+        <Input
+          value={val}
+          onChange={handleChange}
+          prepend='https://'
+          append='.com'
+        />
       </div>
     </div>
   )
