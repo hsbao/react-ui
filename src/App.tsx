@@ -8,8 +8,18 @@ import MenuItem from './components/Menu/menuItem'
 import SubMenu from './components/Menu/subMenu'
 import Icon from './components/Icon/icon'
 import Input from './components/Input'
+import AutoComplete from './components/AutoComplete'
 
 library.add(fas)
+
+const handleFetch = (query: string) => {
+  return fetch(`https://api.github.com/search/users?q=${query}`)
+    .then(res => res.json())
+    .then(({ items }) => {
+      console.log(items)
+      return items.slice(0, 10).map((item: any) => ({ value: item.login, ...item}))
+    })
+}
 
 function App() {
   const [val, setVal] = useState('')
@@ -75,6 +85,13 @@ function App() {
           onChange={handleChange}
           prepend='https://'
           append='.com'
+        />
+      </div>
+
+      <div style={{ marginBottom: '20px', width: '200px' }}>
+        <AutoComplete 
+          value={'123'}
+          fetchSuggestions={handleFetch}
         />
       </div>
     </div>
