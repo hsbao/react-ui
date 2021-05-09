@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "outDir": "dist", // 打包后放在哪个目录
+    "module": "esnext", // 编译后使用什么类型
+    "target": "es5",
+    "declaration": true, // 声明文件
+    "jsx": "react",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src"],
+  "exclude": ["src/**/*.test.tsx", "src/**/*.stories.tsx", "src/setupTests.ts"]
+}
