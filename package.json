@@ -1,5 +1,5 @@
 {
-  "name": "react-lib-ui",
+  "name": "react-ui-library",
   "version": "0.1.0",
   "private": false,
   "main": "dist/index.js",
@@ -38,7 +38,6 @@
     "build": "yarn run clean && yarn run build-ts && yarn run build-css",
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
-    "prepublish": "yarn run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
